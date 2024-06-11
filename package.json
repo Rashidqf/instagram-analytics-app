@@ -1,0 +1,32 @@
+{
+  "name": "nextjs-auth",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "ngrok": "ngrok http 3000"
+  },
+  "dependencies": {
+    "@stripe/react-stripe-js": "^2.7.1",
+    "@stripe/stripe-js": "^3.5.0",
+    "axios": "^1.7.2",
+    "bcryptjs": "^2.4.3",
+    "mongoose": "^8.4.1",
+    "next": "14.2.3",
+    "next-auth": "^4.24.7",
+    "react": "^18",
+    "react-dom": "^18",
+    "reactjs-social-login": "^2.6.3",
+    "stripe": "^15.10.0"
+  },
+  "devDependencies": {
+    "eslint": "^8",
+    "eslint-config-next": "14.2.3",
+    "ngrok": "^5.0.0-beta.2",
+    "postcss": "^8",
+    "tailwindcss": "^3.4.1"
+  }
+}
