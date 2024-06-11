@@ -47,9 +47,9 @@ import InstagramProvider from "next-auth/providers/instagram";
 export default NextAuth({
   providers: [
     InstagramProvider({
-      clientId: "1780839092441758",
-      clientSecret: "ad4d4e5a214f751499f1bbed0dc1b4cb"
-    })
+      clientId: "429198833321637",
+      clientSecret: "c40e131797a9b23b8754fbb040760588",
+    }),
   ],
   // Add any additional configurations here
 });
