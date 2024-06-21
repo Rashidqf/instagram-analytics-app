@@ -21,6 +21,7 @@
     "nextjs-toploader": "^1.6.12",
     "react": "^18",
     "react-dom": "^18",
+    "react-instagram-oauth": "^0.0.3",
     "reactjs-social-login": "^2.6.3",
     "stripe": "^15.10.0"
   },

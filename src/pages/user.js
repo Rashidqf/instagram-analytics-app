@@ -4,6 +4,8 @@ import { useSession } from "next-auth/react";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import axios from "axios";
+import InstagramLogin from "react-instagram-oauth";
+
 export default function UserPage() {
   const { data: session } = useSession();
   const router = useRouter();
@@ -21,6 +23,7 @@ export default function UserPage() {
           }
           const data = await response.json();
           setUserData(data.user);
+          console.log(data);
         } catch (error) {
           console.error("Error fetching user data:", error);
           setError(error.message);
@@ -28,15 +31,27 @@ export default function UserPage() {
       };
 
       fetchData();
+      console.log("test");
     }
-    console.log("test");
-    
-  }, [code]);
-
-
+  }, []);
+  const authHandler = (err, data) => {
+    console.log("testing");
+    if (err) {
+      console.error("Login failed:", err);
+    } else {
+      console.log("Login success:", data);
+      // Here you can handle the returned data, e.g., store it in state or send it to your backend
+    }
+  };
 
   return (
     <div>
+      <InstagramLogin
+        authCallback={() => authHandler()}
+        appId={"1175082610605703"}
+        appSecret={"9aa6ff4793844085505fc4338b09c7f2"}
+        redirectUri={"https://instagram-analytics-app.vercel.app/user"}
+      />
       <h1>Rashid knasjkdb</h1>
     </div>
   );

@@ -59,7 +59,7 @@ export default function Home() {
         // You can now use the userData and access_token, for example by setting a cookie or storing in your database
 
       } catch (error) {
-        console.error("Error fetching access token:", error);
+        console.error("Error fetching access token: test", error);
       }
     };
     data();

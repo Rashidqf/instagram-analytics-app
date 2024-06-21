@@ -3,7 +3,7 @@ import axios from "axios";
 export default async function handler(req, res) {
   const { code } = req.query;
 
-  if (!code) {
+  if (code) {
     return res.status(400).json({ error: "Authorization code is required" });
   }
 
@@ -18,6 +18,7 @@ export default async function handler(req, res) {
         code: code,
       }
     );
+    console.log(response);
 
     const { access_token, user_id } = response.data;
 
