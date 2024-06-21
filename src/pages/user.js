@@ -56,6 +56,7 @@ export default function UserPage() {
         res.status(500).json({ error: "Failed to fetch access token" });
       }
     };
+    data();
   }, [code]);
 
   // if (!session) return <p>Loading...</p>;
