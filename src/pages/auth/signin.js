@@ -10,7 +10,7 @@ export default function SignIn() {
 
   const handleLogin = async () => {
     window.location.href =
-      "https://api.instagram.com/oauth/authorize?client_id=1175082610605703&redirect_uri=https://instagram-analytics-app-32ki.vercel.app/&scope=user_profile,user_media&response_type=code";
+      "https://api.instagram.com/oauth/authorize?client_id=1175082610605703&redirect_uri=https://instagram-analytics-app-ggm2.vercel.app/&scope=user_profile,user_media&response_type=code";
     // try {
     //   const response = await axios.post('/api/instagram/instagramapi');
     //   // setData(response.data);
@@ -53,11 +53,6 @@ export default function SignIn() {
 
       {/* <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
-          <Image
-            className="mx-auto h-10 w-auto"
-            src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-            alt="Your Company"
-          />
           <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-white">
             Sign in to your account
           </h2>

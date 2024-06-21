@@ -7,13 +7,33 @@ import { useEffect, useState } from "react";
 import LoginPage from "@/component/buttonLogin";
 import { getFacebookProfile } from "./api/instagram/test";
 import Link from "next/link";
+import { useRouter } from "next/router";
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
+  const router = useRouter();
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
   const [profile, setProfile] = useState(null);
+  const { code } = router.query;
+  const [userData, setUserData] = useState(null);
+  const [error, setError] = useState("");
+
+  useEffect(() => {
+    if (code) {
+      // Fetch user data using the authorization code
+      const fetchUserData = async () => {
+        try {
+          const response = await axios.get(`/api/auth/instagram?code=${code}`);
+          setUserData(response.data.user);
+        } catch (error) {
+          console.error("Error fetching user data:", error);
+          setError("Failed to fetch user data");
+        }
+      };
+      fetchUserData();
+    }
+  }, [code]);
 
   const handleLogin = async () => {
     window.location.href =
@@ -88,6 +108,17 @@ export default function Home() {
           <pre>{JSON.stringify(profile, null, 2)}</pre>
         </div>
       )} */}
+      <div>
+        {error && <p>{error}</p>}
+        {userData ? (
+          <div>
+            <h1>Welcome, {userData.username}</h1>
+            <p>User ID: {userData.id}</p>
+          </div>
+        ) : (
+          <p>Loading...</p>
+        )}
+      </div>
 
       <div class="mt-10 w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
         <div class="flex justify-end px-4 pt-4">
