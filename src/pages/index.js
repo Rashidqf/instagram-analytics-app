@@ -65,6 +65,7 @@ export default function Home() {
         res.status(500).json({ error: "Failed to fetch access token" });
       }
     };
+    data();
   }, [code]);
 
   const handleLogin = async () => {
