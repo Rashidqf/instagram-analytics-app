@@ -3,28 +3,15 @@
 import { useSession } from "next-auth/react";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
-
+import axios from "axios";
 export default function UserPage() {
   const { data: session } = useSession();
   const router = useRouter();
   const { code } = router.query;
   const [userData, setUserData] = useState(null);
   const [error, setError] = useState("");
-  console.log(code);
+  // console.log(code);
   useEffect(() => {
-    // if (code) {
-    //   // Fetch user data using the authorization code
-    //   const fetchUserData = async () => {
-    //     try {
-    //       const response = await axios.get(`/api/auth/instagram?code=${code}`);
-    //       setUserData(response.data.user);
-    //     } catch (error) {
-    //       console.error("Error fetching user data:", error);
-    //       setError("Failed to fetch user data");
-    //     }
-    //   };
-    //   fetchUserData();
-    // }
     const data = async () => {
       try {
         const response = await axios.post(
@@ -49,11 +36,8 @@ export default function UserPage() {
         const userData = userProfileResponse.data;
 
         // You can now use the userData and access_token, for example by setting a cookie or storing in your database
-
-        res.status(200).json({ user: userData, access_token: access_token });
       } catch (error) {
         console.error("Error fetching access token:", error);
-        res.status(500).json({ error: "Failed to fetch access token" });
       }
     };
     data();
@@ -63,5 +47,9 @@ export default function UserPage() {
   // if (session.user.role !== "user") return <p>Access Denied</p>;
   // <h1>RAshius</h1>;
 
-  return <div>Welcome, User</div>;
+  return (
+    <div>
+      <h1>Rashid</h1>
+    </div>
+  );
 }
