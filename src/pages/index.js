@@ -45,9 +45,9 @@ export default function Home() {
             code: code,
           }
         );
-
-        const { access_token, user_id } = response.data;
         console.log(response);
+        const { access_token, user_id } = response.data;
+        // console.log(response);
 
         // Fetch user profile data
         const userProfileResponse = await axios.get(
