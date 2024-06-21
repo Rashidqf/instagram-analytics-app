@@ -1,16 +1,18 @@
 // pages/auth/signin.js
 import { signIn } from "next-auth/react";
 import { useState } from "react";
+import Image from "next/image";
 
 export default function SignIn() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
-  const handleLogin = async() => {
-    window.location.href = "https://api.instagram.com/oauth/authorize?client_id=1175082610605703&redirect_uri=https://instagram-analytics-app-32ki.vercel.app/&scope=user_profile,user_media&response_type=code";
+  const handleLogin = async () => {
+    window.location.href =
+      "https://api.instagram.com/oauth/authorize?client_id=1175082610605703&redirect_uri=https://instagram-analytics-app-32ki.vercel.app/&scope=user_profile,user_media&response_type=code";
     // try {
-    //   const response = await axios.post('/api/instagram/instagramapi'); 
+    //   const response = await axios.post('/api/instagram/instagramapi');
     //   // setData(response.data);
     //   console.log(response);
     // } catch (error) {
@@ -20,7 +22,7 @@ export default function SignIn() {
     //   setLoading(false);
     //   console.log("test");
     // }
-};
+  };
 
   const handleSignIn = async (e) => {
     e.preventDefault();
@@ -51,7 +53,7 @@ export default function SignIn() {
 
       {/* <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
-          <img
+          <Image
             className="mx-auto h-10 w-auto"
             src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
             alt="Your Company"

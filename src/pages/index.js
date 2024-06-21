@@ -141,7 +141,7 @@ export default function Home() {
           </div>
         </div>
         <div class="flex flex-col items-center pb-10">
-          <img
+          <Image
             class="w-24 h-24 mb-3 rounded-full shadow-lg"
             src={profile?.picture?.data?.url}
             alt="Bonnie image"

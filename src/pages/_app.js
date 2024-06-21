@@ -3,6 +3,8 @@ import { SessionProvider } from "next-auth/react";
 import { headerMain } from "@/component/header";
 import NextTopLoader from "nextjs-toploader";
 import Link from "next/link";
+import Image from "next/image";
+
 
 export default function App({ Component, pageProps }) {
   return (
@@ -18,7 +20,7 @@ export default function App({ Component, pageProps }) {
               <div class="flex lg:flex-1">
                 <Link href="/" class="-m-1.5 p-1.5">
                   <span class="sr-only">Your Company</span>
-                  <img
+                  <Image
                     class="h-8 w-auto"
                     src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
                     alt=""
@@ -82,7 +84,7 @@ export default function App({ Component, pageProps }) {
                 <div class="flex items-center justify-between">
                   <a href="#" class="-m-1.5 p-1.5">
                     <span class="sr-only">Your Company</span>
-                    <img
+                    <Image
                       class="h-8 w-auto"
                       src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
                       alt=""
