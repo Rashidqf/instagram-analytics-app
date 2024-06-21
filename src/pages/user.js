@@ -66,7 +66,7 @@ export default function UserPage() {
 
   return (
     <div>
-      <h1>Rashid</h1>
+      <h1>Rashid knasjkdb</h1>
     </div>
   );
 }
