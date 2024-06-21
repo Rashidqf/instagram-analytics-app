@@ -41,8 +41,7 @@ export default function Home() {
             client_id: "1175082610605703",
             client_secret: "9aa6ff4793844085505fc4338b09c7f2",
             grant_type: "authorization_code",
-            redirect_uri:
-              "https://instagram-analytics-app-ggm2.vercel.app/user",
+            redirect_uri: "https://instagram-analytics-app.vercel.app/user",
             code: code,
           }
         );
