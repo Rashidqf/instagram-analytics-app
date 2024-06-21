@@ -1,8 +1,9 @@
 // pages/api/auth/signup.js
 // import User from "../../../models/User";
 import bcrypt from "bcryptjs";
-import dbConnect from "../../../utils/dbConnect";
+// import dbConnect from "../../../utils/dbConnect";
 import User from "@/model/User";
+import dbConnect from "@/utils/dbconnect";
 
 export default async (req, res) => {
   await dbConnect();
