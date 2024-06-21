@@ -47,7 +47,7 @@ export default function Home() {
         );
 
         const { access_token, user_id } = response.data;
-        console.log(access_token);
+        console.log(response);
 
         // Fetch user profile data
         const userProfileResponse = await axios.get(
@@ -102,32 +102,32 @@ export default function Home() {
     fetchInstagramData();
   }, []);
 
-  useEffect(() => {
-    const data = async () => {
-      try {
-        const response = await fetch(
-          `https://www.instagram.com/rashid.yousufzai/?__a=1`
-        );
-        if (!response.ok) {
-          throw new Error(`HTTP error! Status: ${response.status}`);
-        }
-        console.log(response);
-        return response;
-      } catch (error) {
-        console.error("Error fetching Instagram data:", error);
-        return null;
-      }
-    };
-    data();
+  // useEffect(() => {
+  //   const data = async () => {
+  //     try {
+  //       const response = await fetch(
+  //         `https://www.instagram.com/rashid.yousufzai/?__a=1`
+  //       );
+  //       if (!response.ok) {
+  //         throw new Error(`HTTP error! Status: ${response.status}`);
+  //       }
+  //       console.log(response);
+  //       return response;
+  //     } catch (error) {
+  //       console.error("Error fetching Instagram data:", error);
+  //       return null;
+  //     }
+  //   };
+  //   data();
 
-    const accessToken =
-      "EAAD6sRzGOv0BO1nzA7R8BxJH5WCT5A6kNqfKq50i1DCYck1qI3CZA51MZARkT3QB6IGJANLBWkToBTxq0cR92WsbYqt9FlhbJ4AZBUwDExtosvlB9gwZAo2ZBsZAjcc2ZBAzcSThP08JlmWXwJuJY45zhn7f1nOSelhCShB7c4hVGQ0fRvniLTSnIGVwQW53Q3FfdGb6uVxviRH6Tfqy6zxiOEHUXcZBAU621ZB57zQCSVtz3ZCrqZCuMjtk0H6aNnwKMoQ";
-    if (accessToken) {
-      getFacebookProfile(accessToken)
-        .then((data) => setProfile(data))
-        .catch((error) => console.error(error));
-    }
-  }, []);
+  //   const accessToken =
+  //     "EAAD6sRzGOv0BO1nzA7R8BxJH5WCT5A6kNqfKq50i1DCYck1qI3CZA51MZARkT3QB6IGJANLBWkToBTxq0cR92WsbYqt9FlhbJ4AZBUwDExtosvlB9gwZAo2ZBsZAjcc2ZBAzcSThP08JlmWXwJuJY45zhn7f1nOSelhCShB7c4hVGQ0fRvniLTSnIGVwQW53Q3FfdGb6uVxviRH6Tfqy6zxiOEHUXcZBAU621ZB57zQCSVtz3ZCrqZCuMjtk0H6aNnwKMoQ";
+  //   if (accessToken) {
+  //     getFacebookProfile(accessToken)
+  //       .then((data) => setProfile(data))
+  //       .catch((error) => console.error(error));
+  //   }
+  // }, []);
 
   return (
     <>
