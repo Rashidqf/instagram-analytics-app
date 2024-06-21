@@ -3,7 +3,7 @@ import axios from "axios";
 
 export default async function handler(req, res) {
   if (req.method === "GET") {
-    const accessToken = process.env.ACCESSTOKENGRAPHINSTAGRAM;
+    const accessToken = process.env.KEY;
     const endpoint = "https://graph.facebook.com/v15.0/1654469171673267";
     console.log(accessToken);
 

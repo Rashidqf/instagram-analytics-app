@@ -7,6 +7,21 @@ export default function SignIn() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
+  const handleLogin = async() => {
+    window.location.href = "https://api.instagram.com/oauth/authorize?client_id=1175082610605703&redirect_uri=https://instagram-analytics-app-32ki.vercel.app/&scope=user_profile,user_media&response_type=code";
+    // try {
+    //   const response = await axios.post('/api/instagram/instagramapi'); 
+    //   // setData(response.data);
+    //   console.log(response);
+    // } catch (error) {
+    //   // setError('Failed to fetch data');
+    //   console.error('Error fetching data:', error);
+    // } finally {
+    //   setLoading(false);
+    //   console.log("test");
+    // }
+};
+
   const handleSignIn = async (e) => {
     e.preventDefault();
     const result = await signIn("credentials", {
@@ -22,7 +37,19 @@ export default function SignIn() {
 
   return (
     <>
-      <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
+      <div class="flex items-center justify-center min-h-screen bg-gray-100">
+        <div class="insta-default">
+          <a
+            onClick={handleLogin}
+            class="insta-default bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded inline-flex items-center"
+          >
+            Log in with Instagram <i class="fa fa-instagram ml-2"></i>
+          </a>
+        </div>
+      </div>
+      {/* <button onClick={handleLogin}>Login with Instagram</button> */}
+
+      {/* <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
           <img
             className="mx-auto h-10 w-auto"
@@ -108,7 +135,7 @@ export default function SignIn() {
             </a>
           </p>
         </div>
-      </div>
+      </div> */}
     </>
   );
 }

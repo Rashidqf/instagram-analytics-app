@@ -1,9 +1,12 @@
 // pages/api/auth/signup.js
 // import User from "../../../models/User";
 import bcrypt from "bcryptjs";
+import dbConnect from "../../../utils/dbConnect";
 import User from "@/model/User";
 
 export default async (req, res) => {
+  await dbConnect();
+
   if (req.method === "POST") {
     const { name, email, password } = req.body;
 

@@ -47,10 +47,9 @@ import InstagramProvider from "next-auth/providers/instagram";
 export default NextAuth({
   providers: [
     InstagramProvider({
-      clientId: "429198833321637",
-      clientSecret:
-        "EAAJt6zscz2gBOZClRCZADPwKCaZC60iigferUhBOhhe4abLSZCD9IscAz3b8iutcVfsqdG682RczhA8EZBukB58ISEkZBwdGstwd1siklFqvCzKuvZCalMZAZC9ByFokrXTQ3kaAn6iN7PvCg2qrPE4OfyhltQVlTSXkZAEleCF1QmRaaZCuN4ZBHvOPAHiZC15IenBeEZAosDUl14TydFkzQqh5bcZBzwAQrINAP5KKD17V3dyXMfshKZBJjTqZCOUMZD",
-    }),
+      clientId: "1207756877256989",
+      clientSecret: "94a64b4bf3e52a7c76f0acf3ed1ff84b"
+    })
   ],
   // Add any additional configurations here
 });
