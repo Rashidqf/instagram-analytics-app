@@ -10,6 +10,7 @@ export default function UserPage() {
   const { code } = router.query;
   const [userData, setUserData] = useState(null);
   const [error, setError] = useState("");
+  console.log(code);
   useEffect(() => {
     // if (code) {
     //   // Fetch user data using the authorization code
@@ -57,8 +58,9 @@ export default function UserPage() {
     };
   }, [code]);
 
-  if (!session) return <p>Loading...</p>;
-  if (session.user.role !== "user") return <p>Access Denied</p>;
+  // if (!session) return <p>Loading...</p>;
+  // if (session.user.role !== "user") return <p>Access Denied</p>;
+  // <h1>RAshius</h1>;
 
-  return <div>Welcome, User {session.user.name}</div>;
+  return <div>Welcome, User</div>;
 }
