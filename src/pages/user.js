@@ -33,9 +33,7 @@ export default function UserPage() {
     
   }, [code]);
 
-  // if (!session) return <p>Loading...</p>;
-  // if (session.user.role !== "user") return <p>Access Denied</p>;
-  // <h1>RAshius</h1>;
+
 
   return (
     <div>
