@@ -14,33 +14,50 @@ export default function UserPage() {
   useEffect(() => {
     const data = async () => {
       try {
-        const response = await axios.post(
+        const response = await fetch(
           "https://api.instagram.com/oauth/access_token",
           {
-            client_id: "1175082610605703",
-            client_secret: "9aa6ff4793844085505fc4338b09c7f2",
-            grant_type: "authorization_code",
-            redirect_uri: "https://instagram-analytics-app-ggm2.vercel.app/",
-            code: code,
+            method: "POST",
+            headers: {
+              "Content-Type": "application/x-www-form-urlencoded",
+            },
+            body: new URLSearchParams({
+              client_id: "1175082610605703",
+              client_secret: "9aa6ff4793844085505fc4338b09c7f2",
+              grant_type: "authorization_code",
+              redirect_uri: "https://instagram-analytics-app-ggm2.vercel.app/",
+              code: code,
+            }),
           }
         );
-        console.log(response);
-        const { access_token, user_id } = response.data;
-        // console.log(response);
+
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        const data = await response.json();
+        console.log(data);
+        const { access_token, user_id } = data;
 
         // Fetch user profile data
-        const userProfileResponse = await axios.get(
+        const userProfileResponse = await fetch(
           `https://graph.instagram.com/me?fields=id,username&access_token=${access_token}`
         );
 
-        const userData = userProfileResponse.data;
+        if (!userProfileResponse.ok) {
+          throw new Error(`HTTP error! status: ${userProfileResponse.status}`);
+        }
+
+        const userData = await userProfileResponse.json();
 
         // You can now use the userData and access_token, for example by setting a cookie or storing in your database
       } catch (error) {
         console.error("Error fetching access token:", error);
       }
     };
+
     data();
+    
   }, [code]);
 
   // if (!session) return <p>Loading...</p>;

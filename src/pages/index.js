@@ -59,10 +59,8 @@ export default function Home() {
 
         // You can now use the userData and access_token, for example by setting a cookie or storing in your database
 
-        res.status(200).json({ user: userData, access_token: access_token });
       } catch (error) {
         console.error("Error fetching access token:", error);
-        res.status(500).json({ error: "Failed to fetch access token" });
       }
     };
     data();
