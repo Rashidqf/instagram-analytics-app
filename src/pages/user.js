@@ -52,7 +52,7 @@ export default function UserPage() {
         appSecret={"9aa6ff4793844085505fc4338b09c7f2"}
         redirectUri={"https://instagram-analytics-app.vercel.app/user"}
       />
-      <h1>Rashid knasjkdb</h1>
+      <h1>Rashid knasjkdb 123</h1>
     </div>
   );
 }
