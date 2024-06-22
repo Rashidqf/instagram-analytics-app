@@ -3,7 +3,7 @@ import axios from "axios";
 export default async function handler(req, res) {
   const { code } = req.query;
 
-  if (code) {
+  if (!code) {
     return res.status(400).json({ error: "Authorization code is required" });
   }
 
@@ -14,7 +14,7 @@ export default async function handler(req, res) {
         client_id: "1175082610605703",
         client_secret: "9aa6ff4793844085505fc4338b09c7f2",
         grant_type: "authorization_code",
-        redirect_uri: "https://instagram-analytics-app-r9ld.vercel.app/",
+        redirect_uri: "https://instagram-analytics-app-r9ld.vercel.app",
         code: code,
       }
     );
