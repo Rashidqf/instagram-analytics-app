@@ -18,7 +18,6 @@ export default function Home() {
   const { code } = router.query;
   const [userData, setUserData] = useState(null);
   const [error, setError] = useState("");
-  console.log(code);
   useEffect(() => {
     // if (code) {
     //   // Fetch user data using the authorization code
