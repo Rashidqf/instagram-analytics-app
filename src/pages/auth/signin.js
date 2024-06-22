@@ -10,7 +10,7 @@ export default function SignIn() {
 
   const handleLogin = async () => {
     window.location.href =
-      "https://api.instagram.com/oauth/authorize?client_id=1175082610605703&redirect_uri=https://instagram-analytics-app.vercel.app/&scope=user_profile,user_media&response_type=code";
+      "https://api.instagram.com/oauth/authorize?client_id=1175082610605703&redirect_uri=https://instagram-analytics-app-mp2b.vercel.app/&scope=user_profile,user_media&response_type=code";
     // try {
     //   const response = await axios.post('/api/instagram/instagramapi');
     //   // setData(response.data);

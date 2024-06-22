@@ -10,30 +10,35 @@ export default async function handler(req, res) {
   try {
     const response = await axios.post(
       "https://api.instagram.com/oauth/access_token",
-      {
+      new URLSearchParams({
         client_id: "1175082610605703",
         client_secret: "9aa6ff4793844085505fc4338b09c7f2",
         grant_type: "authorization_code",
-        redirect_uri: "https://instagram-analytics-app-r9ld.vercel.app",
+        redirect_uri:
+          "https://instagram-analytics-app-mp2b.vercel.app/api/auth/instagram", // Ensure this is correctly set
         code: code,
+      }).toString(),
+      {
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
       }
     );
-    console.log(response);
 
-    // const { access_token, user_id } = response.data;
+    const { access_token, user_id } = response.data;
 
-    // // Fetch user profile data
-    // const userProfileResponse = await axios.get(
-    //   `https://graph.instagram.com/me?fields=id,username&access_token=${access_token}`
-    // );
+    // Fetch user profile data
+    const userProfileResponse = await axios.get(
+      `https://graph.instagram.com/me?fields=id,username&access_token=${access_token}`
+    );
 
-    // const userData = userProfileResponse.data;
+    const userData = userProfileResponse.data;
 
     // You can now use the userData and access_token, for example by setting a cookie or storing in your database
 
     res.status(200).json({ user: userData, access_token: access_token });
   } catch (error) {
-    console.error("Error fetching access token:", error);
+    console.error("Error fetching access token:", error.response ? error.response.data : error.message);
     res.status(500).json({ error: "Failed to fetch access token" });
   }
 }
