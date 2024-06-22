@@ -145,7 +145,7 @@ export default function Home() {
             <p>User ID: {userData.id}</p>
           </div>
         ) : (
-          <p>...Loading</p>
+          <p>...Loading updated</p>
         )}
       </div>
 
