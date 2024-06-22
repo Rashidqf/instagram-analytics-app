@@ -20,14 +20,14 @@ export default async function handler(req, res) {
     );
     console.log(response);
 
-    const { access_token, user_id } = response.data;
+    // const { access_token, user_id } = response.data;
 
-    // Fetch user profile data
-    const userProfileResponse = await axios.get(
-      `https://graph.instagram.com/me?fields=id,username&access_token=${access_token}`
-    );
+    // // Fetch user profile data
+    // const userProfileResponse = await axios.get(
+    //   `https://graph.instagram.com/me?fields=id,username&access_token=${access_token}`
+    // );
 
-    const userData = userProfileResponse.data;
+    // const userData = userProfileResponse.data;
 
     // You can now use the userData and access_token, for example by setting a cookie or storing in your database
 
