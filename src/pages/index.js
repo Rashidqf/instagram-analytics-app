@@ -19,86 +19,85 @@ export default function Home() {
   const [userData, setUserData] = useState(null);
   const [error, setError] = useState("");
   useEffect(() => {
-    // if (code) {
-    //   // Fetch user data using the authorization code
-    //   const fetchUserData = async () => {
-    //     try {
-    //       const response = await axios.get(`/api/auth/instagram?code=${code}`);
-    //       setUserData(response.data.user);
-    //     } catch (error) {
-    //       console.error("Error fetching user data:", error);
-    //       setError("Failed to fetch user data");
-    //     }
-    //   };
-    //   fetchUserData();
-    // }
-    const data = async () => {
-      try {
-        const response = await axios.post(
-          "https://api.instagram.com/oauth/access_token",
-          {
-            client_id: "1175082610605703",
-            client_secret: "9aa6ff4793844085505fc4338b09c7f2",
-            grant_type: "authorization_code",
-            redirect_uri: "https://instagram-analytics-app.vercel.app/user",
-            code: code,
-          }
-        );
-        console.log(response);
-        const { access_token, user_id } = response.data;
-        // console.log(response);
+    if (code) {
+      const fetchUserData = async () => {
+        try {
+          const response = await axios.get(`/api/auth/instagram?code=${code}`);
+          setUserData(response.data.user);
+        } catch (error) {
+          console.error("Error fetching user data:", error);
+          setError("Failed to fetch user data");
+        }
+      };
+      fetchUserData();
+    }
+    // const data = async () => {
+    //   try {
+    //     const response = await axios.post(
+    //       "https://api.instagram.com/oauth/access_token",
+    //       {
+    //         client_id: "1175082610605703",
+    //         client_secret: "9aa6ff4793844085505fc4338b09c7f2",
+    //         grant_type: "authorization_code",
+    //         redirect_uri: "https://instagram-analytics-app.vercel.app/user",
+    //         code: code,
+    //       }
+    //     );
+    //     console.log("rssponse", response);
+    //     const { access_token, user_id } = response.data;x
+    //     // console.log(response);
 
-        // Fetch user profile data
-        const userProfileResponse = await axios.get(
-          `https://graph.instagram.com/me?fields=id,username&access_token=${access_token}`
-        );
+    //     // Fetch user profile data
+    //     const userProfileResponse = await axios.get(
+    //       `https://graph.instagram.com/me?fields=id,username&access_token=${access_token}`
+    //     );
 
-        const userData = userProfileResponse.data;
+    //     const userData = userProfileResponse.data;
 
-        // You can now use the userData and access_token, for example by setting a cookie or storing in your database
+    //     // You can now use the userData and access_token, for example by setting a cookie or storing in your database
 
-      } catch (error) {
-        console.error("Error fetching access token: test", error);
-      }
-    };
-    data();
+    //   } catch (error) {
+    //     console.error("Error fetching access token: test", error);
+    //   }
+    // };
+    // data();
   }, [code]);
 
-  const handleLogin = async () => {
-    window.location.href =
-      "https://api.instagram.com/oauth/authorize?client_id=1175082610605703&redirect_uri=https://www.opdagverden.dk/log-ind&scope=user_profile,user_media&response_type=code";
-    // try {
-    //   const response = await axios.post('/api/instagram/instagramapi');
-    //   // setData(response.data);
-    //   console.log(response);
-    // } catch (error) {
-    //   // setError('Failed to fetch data');
-    //   console.error('Error fetching data:', error);
-    // } finally {
-    //   setLoading(false);
-    //   console.log("test");
-    // }
-  };
+  // const handleLogin = async () => {
+  //   window.location.href =
+  //     "https://api.instagram.com/oauth/authorize?client_id=1175082610605703&redirect_uri=https://www.opdagverden.dk/log-ind&scope=user_profile,user_media&response_type=code";
+  //   // try {
+  //   //   const response = await axios.post('/api/instagram/instagramapi');
+  //   //   // setData(response.data);
+  //   //   console.log(response);
+  //   // } catch (error) {
+  //   //   // setError('Failed to fetch data');
+  //   //   console.error('Error fetching data:', error);
+  //   // } finally {
+  //   //   setLoading(false);
+  //   //   console.log("test");
+  //   // }
+  // };
 
-  const fetchInstagramData = async () => {
-    setLoading(true);
-    setError(null);
+  // const fetchInstagramData = async () => {
+  //   setLoading(true);
+  //   setError(null);
 
-    try {
-      const response = await axios.get("/api/instagram/basicapi");
-      setData(response.data);
-      console.log(response);
-    } catch (error) {
-      setError("Failed to fetch data");
-      console.error("Error fetching data:", error);
-    } finally {
-      setLoading(false);
-    }
-  };
+  //   try {
+  //     const response = await axios.get("/api/instagram/basicapi");
+  //     setData(response.data);
+  //     console.log(response);
+  //   } catch (error) {
+  //     setError("Failed to fetch data");
+  //     console.error("Error fetching data:", error);
+  //   } finally {
+  //     setLoading(false);
+  //   }
+  // };
 
-  useEffect(() => {
-    fetchInstagramData();
-  }, []);
+  // useEffect(() => {
+  //   fetchInstagramData();
+  // }, []);
 
   // useEffect(() => {
   //   const data = async () => {
@@ -137,7 +136,8 @@ export default function Home() {
           <pre>{JSON.stringify(profile, null, 2)}</pre>
         </div>
       )} */}
-      <div>
+
+      {/* <div>
         {error && <p>{error}</p>}
         {userData ? (
           <div>
@@ -147,7 +147,8 @@ export default function Home() {
         ) : (
           <p>...Loading updated</p>
         )}
-      </div>
+      </div> */}
+      <h1>UserData{userData}</h1>
 
       <div class="mt-10 w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
         <div class="flex justify-end px-4 pt-4">
