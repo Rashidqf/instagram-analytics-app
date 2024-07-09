@@ -27,7 +27,6 @@ const index = () => {
           async
         ></script>
       </Head>
-
       <Header />
       <Sidebar />
       <Main />

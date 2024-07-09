@@ -39,13 +39,13 @@ export default function SignIn() {
 
   return (
     <>
-      <div class="flex items-center justify-center min-h-screen bg-gray-100">
-        <div class="insta-default">
+      <div className="flex items-center justify-center min-h-screen bg-gray-100">
+        <div className="insta-default">
           <a
             onClick={handleLogin}
-            class="insta-default bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded inline-flex items-center"
+            className="insta-default bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded inline-flex items-center"
           >
-            Log in with Instagram <i class="fa fa-instagram ml-2"></i>
+            Log in with Instagram <i className="fa fa-instagram ml-2"></i>
           </a>
         </div>
       </div>
